@@ -1,7 +1,5 @@
-from rent import InvestWithRent
-
 from rubti_real_estate.real_estate import RealEstateFinancing
-from rubti_real_estate.utils import compound_invest, compound_price, rate_of_return
+from rubti_real_estate.utils import compound_invest, monthly_compound, rate_of_return
 
 net_monthly_income = 3489
 monthly_costs = 1929.63
@@ -10,7 +8,7 @@ rent = 1300
 investment_months = 18 * 12
 k = 1000
 owners_equity = 100 * k
-compound_owners_equity = compound_price(owners_equity, 0.02, investment_months)
+compound_owners_equity = monthly_compound(owners_equity, 0.02, investment_months)
 
 rent_invest = InvestWithRent(
     rent, net_monthly_income + budget_bea, monthly_costs, 0.035, investment_months

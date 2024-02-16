@@ -1,36 +1,33 @@
-[build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
-
-[project]
-name = "rubti_real_estate"
+[tool.poetry]
+name = "rubti-real-estate"
 version = "0.1"
-dependencies = ["mortgage"]
-requires-python = ">= 3.10"
-
-authors = [{ name = "Thilo Wendt" }]
 description = "Calculator to compare buying vs. renting"
+authors = ["Thilo Wendt <mail@thilo-wendt.de>"]
+license = "MIT"
 readme = "README.md"
-keywords = ["real estate", "investement"]
+packages = [{ include = "rubti_real_estate", from = "src" }]
 classifiers = [
     "Programming Language :: Python",
     "Development Status :: 4 - Beta",
     "Intended Audience :: Developers",
-    "Intended Audience :: End Users/Desktop",
-    "License :: OSI Approved :: MIT License",
     "Natural Language :: English",
     "Topic :: Office/Business :: Financial :: Investment",
     "Typing :: Typed",
 ]
 
-[project.optional-dependencies]
-dev = ["black", "isort", "pytest", "pre-commit"]
+[tool.poetry.dependencies]
+python = ">=3.10"
+mortgage = "^1.0.5"
 
-[project.urls]
-Repository = "https://github.com/rubti/real-estate"
+[tool.poetry.group.dev.dependencies]
+black = "^24.1.1"
+isort = "^5.13.2"
+pytest = "^8.0.0"
+pre-commit = "^3.6.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.isort]
 profile = "black"
-
-[tool.setuptools]
-packages = ["src"]

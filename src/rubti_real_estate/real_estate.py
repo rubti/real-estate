@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from mortgage import Loan
 
-from rubti_real_estate.utils import compound_invest, compound_price
+from rubti_real_estate.utils import compound_invest, monthly_compound
 
 
 class RealEstateFinancing:
@@ -42,11 +42,11 @@ class RealEstateFinancing:
         return cost
 
     def end_worth(self):
-        return compound_price(self.price, self.value_increase, self.months)
+        return monthly_compound(self.price, self.value_increase, self.months)
 
     def cost_of_reinvest(self):
         return (
-            compound_price(self.owners_equity, self.alt_rev, self.months)
+            monthly_compound(self.owners_equity, self.alt_rev, self.months)
             - self.owners_equity
         )
 

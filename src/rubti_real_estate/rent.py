@@ -1,20 +1,6 @@
 from dataclasses import dataclass
 from decimal import Decimal
 
-from utils import compound_invest, quantize_decimal
-
-
-def total_increasing_rent(
-    monthly_cost: Decimal, annual_increase: Decimal, years: int, months: int
-) -> Decimal:
-    current_cost = monthly_cost
-    result = []
-    for y in range(years):
-        result.append(current_cost * 12)
-        current_cost *= 1 + annual_increase
-    result.append(current_cost * months)
-    return quantize_decimal(sum(result))
-
 
 class InvestWithRent:
     def __init__(
